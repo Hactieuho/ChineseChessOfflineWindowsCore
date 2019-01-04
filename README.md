@@ -1,8 +1,8 @@
 # ChineseChessOfflineWindowsCore
 
 g++ -shared -fpic ChineseChessOfflineWindowsCore/base/* ChineseChessOfflineWindowsCore/co_up/* ChineseChessOfflineWindowsCore/eleeye/* ChineseChessOfflineWindowsCore/main.cpp -w -o libChineseChess.so
-
-- Co tuong:
+<p>
+	<b>- Co tuong:</b>
   struct NuocCo
 	{
 		int iSrcCol, iSrcRow, iDstCol, iDstRow;
@@ -32,7 +32,7 @@ g++ -shared -fpic ChineseChessOfflineWindowsCore/base/* ChineseChessOfflineWindo
 	bool isRedPiece(int piece);
   // Kiem tra chieu tuong
 	bool isCheck(int Board[10][9], bool isRedTurn);
-  
+</p>  
   
 - Co up:
   // Nghi nuoc di quan den

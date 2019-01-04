@@ -10,7 +10,11 @@
 #include "position.h"
 #include <string>
 #include <cstdint>
+#if defined(WIN32) || defined(_WIN32)
 #define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT
+#endif
 extern char        g_bookPath[1024];
 
 // Hung 22/1/2018

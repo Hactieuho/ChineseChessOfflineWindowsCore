@@ -3,7 +3,7 @@
 g++ -shared -fpic ChineseChessOfflineWindowsCore/base/* ChineseChessOfflineWindowsCore/co_up/* ChineseChessOfflineWindowsCore/eleeye/* ChineseChessOfflineWindowsCore/main.cpp -w -o libChineseChess.so
 <p>
 	<b>- Co tuong:</b>
-  struct NuocCo
+  struct NuocCo<br/>
 	{
 		int iSrcCol, iSrcRow, iDstCol, iDstRow;
 	};

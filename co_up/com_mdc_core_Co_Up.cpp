@@ -6,7 +6,7 @@ extern "C" {
 	//                1. isBlackWin = TRUE if the computer has won the game        //
 	//                2. isBlackWin = FALSE if the player has won the game        //
 	//////////////////////////////////////////////////////////////////////////
-	bool co_up_isGameFinished(int Board[10][9], bool isRedTurn, bool* isBlackWin) {
+	DLL_EXPORT bool co_up_isGameFinished(int Board[10][9], bool isRedTurn, bool* isBlackWin) {
 		int legalX[20];
 		int legalY[20];
 		int *iLegalX = &legalX[0];
@@ -23,7 +23,7 @@ extern "C" {
 		return true;
 	}
 
-	NuocCo co_up_letComputerThink(int board[10][9], int iDepth, long lngLimitTime) {
+	DLL_EXPORT NuocCo co_up_letComputerThink(int board[10][9], int iDepth, long lngLimitTime) {
 		int *pSrcX = new int();
 		int *pSrcY = new int();
 		int *pDstX = new int();
@@ -37,7 +37,7 @@ extern "C" {
 		return nuocCo;
 	}
 
-	NuocCo co_up_letComputerThinkForHint(int board[10][9], int iDepth, long lngLimitTime) {
+	DLL_EXPORT NuocCo co_up_letComputerThinkForHint(int board[10][9], int iDepth, long lngLimitTime) {
 		int *pSrcX = new int();
 		int *pSrcY = new int();
 		int *pDstX = new int();
@@ -51,12 +51,12 @@ extern "C" {
 		return nuocCo;
 	}
 
-	bool isLegalMoveWithoutCheck(int board[10][9], int iSrcCol, int iSrcRow,
+	DLL_EXPORT bool isLegalMoveWithoutCheck(int board[10][9], int iSrcCol, int iSrcRow,
 		int iDstCol, int iDstRow) {
 		return true;
 	}
 
-	bool co_up_isRedPiece(int piece) {
+	DLL_EXPORT bool co_up_isRedPiece(int piece) {
 		int type = abs(piece);
 		if (type > 0 && type < 8)
 			return true;
@@ -64,7 +64,7 @@ extern "C" {
 			return false;
 	}
 
-	void convertToNormalBoard(int Board[10][9], int board[10][9]) {
+	DLL_EXPORT void convertToNormalBoard(int Board[10][9], int board[10][9]) {
 		int chess_desk[10][9] = { 
 			{ 4, 6, 3, 2, 1, 2, 3, 6, 4 },
 			{ 0, 0, 0, 0, 0, 0,	0, 0, 0 },
@@ -87,7 +87,7 @@ extern "C" {
 		}
 	}
 
-	int co_up_getAllLegalMoves(int Board[10][9], int X, int Y, int *iLegalX,
+	DLL_EXPORT int co_up_getAllLegalMoves(int Board[10][9], int X, int Y, int *iLegalX,
 		int *iLegalY) {
 		//	for (int i = 0; i < 9; i++)
 		//		for (int j = 0; j < 10; j++) {
@@ -770,7 +770,7 @@ extern "C" {
 		return nLegalCount;
 	}
 
-	int co_up_generateAllLegalMoves(int Board[10][9], bool isRedTurn, int *retLegalSrcX,
+	DLL_EXPORT int co_up_generateAllLegalMoves(int Board[10][9], bool isRedTurn, int *retLegalSrcX,
 		int *retLegalSrcY, int *retLegalDstX, int *retLegalDstY) {
 		printf("Co Up generate all legal moves!");
 
@@ -806,7 +806,7 @@ extern "C" {
 		return nLegalCount;
 	}
 
-	bool co_up_isLegalMove(int Board[10][9], int iSrcX, int iSrcY, int iDstX, int iDstY,
+	DLL_EXPORT bool co_up_isLegalMove(int Board[10][9], int iSrcX, int iSrcY, int iDstX, int iDstY,
 		bool isNeedCheck) {
 		bool ret = false;
 		if (iSrcX < 0 || iSrcX > 8 || iSrcY < 0 || iSrcY > 9 || iDstX < 0
@@ -1165,7 +1165,7 @@ extern "C" {
 		return ret;
 	}
 
-	bool co_up_findGeneralPiece(int Board[10][9], bool isRedTurn, int* retX, int* retY) {
+	DLL_EXPORT bool co_up_findGeneralPiece(int Board[10][9], bool isRedTurn, int* retX, int* retY) {
 		if (isRedTurn) {
 			//Tim vua den
 			for (int x = 3; x <= 5; x++)
@@ -1191,7 +1191,7 @@ extern "C" {
 		return false;
 	}
 
-	bool co_up_isCheck(int Board[10][9], bool isRedTurn) {
+	DLL_EXPORT bool co_up_isCheck(int Board[10][9], bool isRedTurn) {
 		int X = 0;
 		int Y = 0;
 		if (!co_up_findGeneralPiece(Board, isRedTurn, &X, &Y)) {
@@ -1209,7 +1209,7 @@ extern "C" {
 		return false;
 	}
 
-	void co_up_getBoard(int Board[10][9], int srcX, int srcY, int dstX, int dstY,
+	DLL_EXPORT void co_up_getBoard(int Board[10][9], int srcX, int srcY, int dstX, int dstY,
 		int nextBoard[10][9]) {
 		for (int x = 0; x < 9; x++)
 			for (int y = 0; y < 10; y++)

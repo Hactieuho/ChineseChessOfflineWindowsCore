@@ -19,8 +19,6 @@ You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#include <windows.h>
-#include "../resource.h"
 #include "position.h"
 #include "book.h"
 
@@ -33,14 +31,14 @@ int GetBookMoves(const PositionStruct &pos, const char *szBookFile, BookStruct *
   // 从开局库中搜索着法的例程，有以下几个步骤：
 
   // 1. 打开开局库，如果打开失败，则返回空值；
-  //if (!BookFile.Open(szBookFile)) {
-  //  return 0;
-  //}
+  if (!BookFile.Open(szBookFile)) {
+    return 0;
+  }
 
-  HRSRC myResource = ::FindResource(NULL, MAKEINTRESOURCE(IDR_DATA1), RT_RCDATA);
-  HGLOBAL myResourceData = ::LoadResource(NULL, myResource);
-  FILE* pMyBinaryData = (FILE*)::LockResource(myResourceData);
-  BookFile.fp = pMyBinaryData;
+  //HRSRC myResource = ::FindResource(NULL, MAKEINTRESOURCE(IDR_DATA1), RT_RCDATA);
+  //HGLOBAL myResourceData = ::LoadResource(NULL, myResource);
+  //FILE* pMyBinaryData = (FILE*)::LockResource(myResourceData);
+  //BookFile.fp = pMyBinaryData;
 
   if (BookFile.fp == nullptr) {
 	  return 0;

@@ -20,7 +20,7 @@ struct PipeStruct {
   int nReadEnd;
   char szBuffer[LINE_INPUT_MAX_CHAR];
 
-  void Open(const char *szExecFile = NULL);
+  void Open(const char *szExecFile = nullptr);
   void Close(void) const;
   void ReadInput(void);
   bool CheckInput(void);

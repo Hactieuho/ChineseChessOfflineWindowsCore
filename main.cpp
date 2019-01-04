@@ -1,10 +1,9 @@
 #include "eleeye/eleeye.h"
 #include "co_up/com_mdc_core_Co_Up.h"
 #include <iostream>
-#include <conio.h>
 
 using namespace std;
-int main()
+DLL_EXPORT int main()
 {
 	int m_MainMap[10][9] = 
 	{					//	Vua

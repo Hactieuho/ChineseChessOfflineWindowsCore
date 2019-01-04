@@ -1,18 +1,14 @@
 #include <stdio.h>
 #include <string.h>
-
+#include "base.h"
 #ifndef PARSE_H
 #define PARSE_H
 
 #ifdef _WIN32
-
-#include <windows.h>
 #include <shlwapi.h>
-
 inline char *strcasestr(const char *sz1, const char *sz2) {
   return StrStrI(sz1, sz2);
 }
-
 #endif
 
 #ifdef _MSC_VER

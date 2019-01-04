@@ -110,7 +110,7 @@ extern uint32_t g_dwSecondStr;
 extern uint32_t g_dwThirdStr;
 
 extern "C" {
-	NuocCo letComputerThink(int Board[10][9], int iDepth, long lngLimitTime)
+	DLL_EXPORT NuocCo letComputerThink(int Board[10][9], int iDepth, long lngLimitTime)
 	{
 		NuocCo nuocCo;
 		int i, j;
@@ -216,12 +216,12 @@ extern "C" {
 		return nuocCo;
 	};
 
-	bool quitGame()
+	DLL_EXPORT bool quitGame()
 	{
 		return quit();
 	}
 
-	NuocCo letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime)
+	DLL_EXPORT NuocCo letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime)
 	{
 		NuocCo nuocCo;
 		int i, j;
@@ -303,7 +303,7 @@ extern "C" {
 		return nuocCo;
 	};
 
-	bool isLegalMove(int Board[10][9], int iSrcCol, int iSrcRow, int iDstCol, int iDstRow)
+	DLL_EXPORT bool isLegalMove(int Board[10][9], int iSrcCol, int iSrcRow, int iDstCol, int iDstRow)
 	{
 		int i, j;
 		int pcWhite[7];
@@ -382,7 +382,7 @@ extern "C" {
 	//                2. bCompWon = FALSE if the player has won the game        //
 	//////////////////////////////////////////////////////////////////////////
 
-	bool isGameFinished(int Board[10][9], bool* isBlackWin)
+	DLL_EXPORT bool isGameFinished(int Board[10][9], bool* isBlackWin)
 	{
 		g_dwMoveStr = 0;
 		int i, j;
@@ -463,7 +463,7 @@ extern "C" {
 	//        2. bCompFirst = FALSE - The player (piece > 7) first            //
 	//////////////////////////////////////////////////////////////////////////
 
-	bool isBoardValid(int board[10][9], bool bCompFirst)
+	DLL_EXPORT bool isBoardValid(int board[10][9], bool bCompFirst)
 	{
 		int Count[14] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
 		int PieceCount[14] = { 1,2,2,2,2,2,5,1,2,2,2,2,2,5 };
@@ -566,7 +566,7 @@ extern "C" {
 		return ret;
 	};
 
-	int getAllLegalMoves(int Board[10][9], int iTestCol, int iTestRow, int *iLegalCol, int *iLegalRow)
+	DLL_EXPORT int getAllLegalMoves(int Board[10][9], int iTestCol, int iTestRow, int *iLegalCol, int *iLegalRow)
 	{
 		int i, j;
 		int pcWhite[7];
@@ -644,7 +644,7 @@ extern "C" {
 		return nLegalCount;
 	}
 
-	uint32_t genMoves(PositionStruct *lppos, uint32_t* lpmv)
+	DLL_EXPORT uint32_t genMoves(PositionStruct *lppos, uint32_t* lpmv)
 	{
 		int i, nTotal, nLegal;
 		MoveStruct mvs[MAX_GEN_MOVES];
@@ -662,7 +662,7 @@ extern "C" {
 		return nLegal;
 	}
 
-	bool findGeneralPiece(int Board[10][9], bool isRedTurn, int* retX, int* retY) {
+	DLL_EXPORT bool findGeneralPiece(int Board[10][9], bool isRedTurn, int* retX, int* retY) {
 		if (isRedTurn) {
 			//Tim vua den
 			for (int x = 3; x <= 5; x++)
@@ -688,7 +688,7 @@ extern "C" {
 		return false;
 	}
 
-	bool isRedPiece(int piece) {
+	DLL_EXPORT bool isRedPiece(int piece) {
 		int type = abs(piece);
 		if (type > 0 && type < 8)
 			return true;
@@ -696,7 +696,7 @@ extern "C" {
 			return false;
 	}
 
-	bool isCheck(int Board[10][9], bool isRedTurn) {
+	DLL_EXPORT bool isCheck(int Board[10][9], bool isRedTurn) {
 		int X = 0;
 		int Y = 0;
 		if (!findGeneralPiece(Board, isRedTurn, &X, &Y)) {

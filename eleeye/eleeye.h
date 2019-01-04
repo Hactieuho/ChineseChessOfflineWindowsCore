@@ -10,6 +10,8 @@
 #include "position.h"
 #include <string>
 #include <cstdint>
+#define DLL_EXPORT __declspec(dllexport)
+extern char        g_bookPath[1024];
 
 // Hung 22/1/2018
 extern "C" {
@@ -17,18 +19,18 @@ extern "C" {
 	{
 		int iSrcCol, iSrcRow, iDstCol, iDstRow;
 	};
-	NuocCo letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime);
-	NuocCo letComputerThink(int Board[10][9], int iDepth, long lngLimitTime);
-	bool isLegalMove(int Board[10][9], int iSrcCol, int iSrcRow, int iDstCol, int iDstRow);
-	bool isGameFinished(int Board[10][9], bool *isBlackWin);
-	bool isBoardValid(int board[10][9], bool bCompFirst);
-	int getAllLegalMoves(int Board[10][9], int iTestCol, int iTestRow, int *iLegalCol, int *iLegalRow);
-	bool quitGame();
+	DLL_EXPORT NuocCo letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime);
+	DLL_EXPORT NuocCo letComputerThink(int Board[10][9], int iDepth, long lngLimitTime);
+	DLL_EXPORT bool isLegalMove(int Board[10][9], int iSrcCol, int iSrcRow, int iDstCol, int iDstRow);
+	DLL_EXPORT bool isGameFinished(int Board[10][9], bool *isBlackWin);
+	DLL_EXPORT bool isBoardValid(int board[10][9], bool bCompFirst);
+	DLL_EXPORT int getAllLegalMoves(int Board[10][9], int iTestCol, int iTestRow, int *iLegalCol, int *iLegalRow);
+	DLL_EXPORT bool quitGame();
 
 	// QuyBKA
-	bool findGeneralPiece(int Board[10][9], bool isRedTurn, int* retX, int* retY);
-	bool isRedPiece(int piece);
-	bool isCheck(int Board[10][9], bool isRedTurn);
+	DLL_EXPORT bool findGeneralPiece(int Board[10][9], bool isRedTurn, int* retX, int* retY);
+	DLL_EXPORT bool isRedPiece(int piece);
+	DLL_EXPORT bool isCheck(int Board[10][9], bool isRedTurn);
 
-	uint32_t genMoves(PositionStruct *lppos, uint32_t* lpmv);
+	DLL_EXPORT uint32_t genMoves(PositionStruct *lppos, uint32_t* lpmv);
 }

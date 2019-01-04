@@ -34,7 +34,7 @@ g++ -shared -fpic ChineseChessOfflineWindowsCore/base/* ChineseChessOfflineWindo
 	bool isCheck(int Board[10][9], bool isRedTurn);<br/>
 </p>  <br/>
   <p>
-**- Co up:**<br/>
+<b>- Co up:<b><br/>
   // Nghi nuoc di quan den<br/>
   NuocCo co_up_letComputerThink(int Board[10][9], int iDepth, long lngLimitTime);<br/>
   // Nghi nuoc di quan do<br/>

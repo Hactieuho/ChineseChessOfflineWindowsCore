@@ -7,11 +7,11 @@ g++ -shared -fpic ChineseChessOfflineWindowsCore/base/* ChineseChessOfflineWindo
 	{<br/>
 		int iSrcCol, iSrcRow, iDstCol, iDstRow;<br/>
 	};<br/>
-  // Nghi nuoc di quan do<br/>
-  // lngLimitTime (ms)<br/>
-	NuocCo letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime);<br/>
   // Nghi nuoc di quan den<br/>
+  // lngLimitTime (ms)<br/>
 	NuocCo letComputerThink(int Board[10][9], int iDepth, long lngLimitTime);<br/>
+  // Nghi nuoc di quan do<br/>
+	NuocCo letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime);<br/>
   // Kiem tra neu nuoc di hop le<br/>
 	bool isLegalMove(int Board[10][9], int iSrcCol, int iSrcRow, int iDstCol, int iDstRow);<br/>
   // Kiem tra het co<br/>
@@ -39,7 +39,7 @@ g++ -shared -fpic ChineseChessOfflineWindowsCore/base/* ChineseChessOfflineWindo
   NuocCo co_up_letComputerThink(int Board[10][9], int iDepth, long lngLimitTime);<br/>
   // Nghi nuoc di quan do<br/>
 	NuocCo co_up_letComputerThinkForHint(int Board[10][9], int iDepth, long lngLimitTime);<br/>
-  // Lay danh sach nuoc di hople<br/>
+  // Lay danh sach nuoc di hop le<br/>
 	int co_up_getAllLegalMoves(int Board[10][9], int iTestCol, int iTestRow,	int *iLegalCol, int *iLegalRow);<br/>
   // Kiem tra het co<br/>
 	bool co_up_isGameFinished(int Board[10][9], bool isRedTurn, bool* isBlackWin);<br/>

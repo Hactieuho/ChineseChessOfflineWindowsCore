@@ -4,7 +4,11 @@
 #include "../base/parse.h"
 #include "co_up_search.h"
 #include "../eleeye/eleeye.h"
+#if defined(WIN32) || defined(_WIN32)
 #define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT
+#endif
 extern "C" {
 	// AI core
 	DLL_EXPORT NuocCo co_up_letComputerThink(int Board[10][9], int iDepth, long lngLimitTime);
